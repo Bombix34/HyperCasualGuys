@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrapSpawner : MonoBehaviour
 {
-    public List<GameObject> traps;
+    public List<Obstacle> traps;
 
 
     void Update()
@@ -17,10 +17,19 @@ public class TrapSpawner : MonoBehaviour
 
     public void SpawnTrap()
     {
-        float randSize = Random.Range(3f, 6f);
+        Obstacle chosenObstacle = traps[(int)Random.Range(0, traps.Count)];
+        float randSize = Random.Range(chosenObstacle.minSize, chosenObstacle.maxSize);
         Vector3 randPos = new Vector3(transform.position.x + Random.Range(-10f, 10f), transform.position.y, transform.position.z + Random.Range(-10f, 0f));
-        GameObject spawned = Instantiate(traps[(int)Random.Range(0,traps.Count)], randPos, Quaternion.identity) as GameObject;
+        GameObject spawned = Instantiate(chosenObstacle.objectPrefab, randPos, Quaternion.identity) as GameObject;
         spawned.transform.localScale = new Vector3(randSize, randSize, randSize);
         spawned.GetComponent<SimpleForce>().AddForce();
     }
+}
+
+[System.Serializable]
+public struct Obstacle
+{
+    public GameObject objectPrefab;
+    public float minSize;
+    public float maxSize;
 }
