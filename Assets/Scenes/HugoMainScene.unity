@@ -1015,10 +1015,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   traps:
-  - objectPrefab: {fileID: 7747965590171433614, guid: e3b26f78a36ef4a92b4b07eea0817596,
-      type: 3}
-    minSize: 3
-    maxSize: 6
+  - {fileID: 11400000, guid: 6ee82ef18ab25455380dcbb7367c65e5, type: 2}
+  - {fileID: 11400000, guid: ed2ca8a09e44842419686be2560ba601, type: 2}
+  - {fileID: 11400000, guid: 311051427ccee479aa38c8306fe584d7, type: 2}
+  - {fileID: 11400000, guid: 7278a729470294363815aad9ad18b136, type: 2}
 --- !u!1 &1212974643
 GameObject:
   m_ObjectHideFlags: 0

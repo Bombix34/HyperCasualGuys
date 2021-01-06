@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7076874433087761724}
   m_Layer: 0
   m_Name: banana
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,3 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4863d0bdb26434831aee1df0551000c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 6ee82ef18ab25455380dcbb7367c65e5, type: 2}

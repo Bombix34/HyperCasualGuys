@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SimpleForce : MonoBehaviour
 {
+    [SerializeField]
+    private Obstacle settings;
+
     Rigidbody body;
 
     Vector3 initPos;
@@ -18,7 +21,7 @@ public class SimpleForce : MonoBehaviour
     {
         transform.position = initPos;
         body.velocity /= 10;
-        body.AddForce(new Vector3(0f, 0f, 10f) * Random.Range(500f,2500f),ForceMode.Impulse);
+        body.AddForce(new Vector3(0f, 0f, 10f) * Random.Range(settings.minSpeed,settings.maxSpeed)*100f,ForceMode.Impulse);
     }
 
 }

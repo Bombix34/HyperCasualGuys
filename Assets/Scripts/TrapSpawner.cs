@@ -25,11 +25,3 @@ public class TrapSpawner : MonoBehaviour
         spawned.GetComponent<SimpleForce>().AddForce();
     }
 }
-
-[System.Serializable]
-public struct Obstacle
-{
-    public GameObject objectPrefab;
-    public float minSize;
-    public float maxSize;
-}
