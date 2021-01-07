@@ -25,12 +25,13 @@ public class TrapSpawner : MonoBehaviour
         spawned.GetComponent<SimpleForce>().AddForce();
     }
 
-    public void SpawnTrap(Vector3 spawnPosition)
+    public GameObject SpawnTrap(Vector3 spawnPosition)
     {
         Obstacle chosenObstacle = traps[(int)Random.Range(0, traps.Count)];
         float randSize = Random.Range(chosenObstacle.minSize, chosenObstacle.maxSize);
         GameObject spawned = Instantiate(chosenObstacle.objectPrefab, spawnPosition, Quaternion.identity) as GameObject;
         spawned.transform.localScale = new Vector3(randSize, randSize, randSize);
         spawned.GetComponent<SimpleForce>().AddForce();
+        return spawned;
     }
 }

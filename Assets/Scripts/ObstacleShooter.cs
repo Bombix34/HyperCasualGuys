@@ -7,11 +7,20 @@ public class ObstacleShooter : MonoBehaviour
     [SerializeField]
     private TrapSpawner obstacleSpawner;
 
+    private CameraManager cameraManager;
+
     [SerializeField]
     private float yPosition, zPosition;
-    
-    void Update()
-    {   
+
+    private void Awake()
+    {
+        cameraManager = GetComponent<CameraManager>();
+    }
+
+    private void Update()
+    {
+        if (!cameraManager.AtInitPosition)
+            return;
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -20,24 +29,9 @@ public class ObstacleShooter : MonoBehaviour
             {
                 float xValue = hit.point.x;
                 Vector3 spawnPosition = new Vector3(xValue, yPosition, zPosition);
-                obstacleSpawner.SpawnTrap(spawnPosition);
-
-                // Do something with the object that was hit by the raycast.
+                GameObject newObstacle = obstacleSpawner.SpawnTrap(spawnPosition);
+                cameraManager.FollowTarget(newObstacle.transform);
             }
-            /*
-            float ratio = Input.mousePosition.x / Screen.width;
-            float xValue=0f;
-            if(ratio<0.5)
-            {
-                xValue = -ratio * 15f;
-            }
-            else
-            {
-                xValue = ratio * 15f;
-            }
-            Vector3 spawnPosition = new Vector3(xValue, yPosition, zPosition);
-            obstacleSpawner.SpawnTrap(spawnPosition);
-            */
         }
 
     }

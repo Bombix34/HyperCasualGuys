@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 8811761162866064038, guid: 06dc3b012b0df8e48915aa7cdada1d85,
     type: 3}
-  minSize: 10
-  maxSize: 15
-  minSpeed: 10
-  maxSpeed: 15
+  minSize: 15
+  maxSize: 20
+  minSpeed: 25
+  maxSpeed: 30

@@ -19,6 +19,7 @@ public class MummyAgent : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.enabled = false;
+        agent.speed = 8f;
     }
 
     private void Start()
