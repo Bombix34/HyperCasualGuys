@@ -21,7 +21,7 @@ public class SimpleForce : MonoBehaviour
     {
         transform.position = initPos;
         body.velocity /= 10;
-        body.AddForce(new Vector3(0f, 0f, 10f) * Random.Range(settings.minSpeed,settings.maxSpeed)*100f,ForceMode.Impulse);
+        body.AddForce(new Vector3(0f, -1f, 10f) * Random.Range(settings.minSpeed,settings.maxSpeed)*100f,ForceMode.Impulse);
     }
 
 }
