@@ -26,6 +26,7 @@ public class MummySpawner : MonoBehaviour
     {
         Vector3 randPos = new Vector3(transform.position.x + Random.Range(-15f, 15f), transform.position.y, transform.position.z + Random.Range(-10f, 0f));
         GameObject spawned = Instantiate(mummyPrefab, randPos, Quaternion.identity)as GameObject;
-        spawned.GetComponent<MummyAgent>().target = new Vector3(targetPos.x + Random.Range(-18f, 18f), targetPos.y, targetPos.z);
+        spawned.transform.GetChild(0).rotation = Quaternion.Euler(0, 0, 0);
+        spawned.GetComponent<MummyAgent>().target = new Vector3(targetPos.x + Random.Range(-12f, 12f), targetPos.y, targetPos.z);
     }
 }

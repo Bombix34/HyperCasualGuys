@@ -15,6 +15,9 @@ public class MummyAgent : MonoBehaviour
 
     float timeBeforeDisappear = 15f;
 
+    [SerializeField]
+    private Transform modelTransform;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -24,6 +27,7 @@ public class MummyAgent : MonoBehaviour
 
     private void Start()
     {
+        modelTransform.rotation = Quaternion.Euler(0, 0, 0);
 
     }
 
@@ -50,6 +54,7 @@ public class MummyAgent : MonoBehaviour
     public void PursuitState()
     {
         curState = MummyState.Pursuit;
+        modelTransform.rotation = Quaternion.Euler(0, 0, 0);
         agent.enabled = true;
         agent.SetDestination(target);
     }
@@ -58,6 +63,7 @@ public class MummyAgent : MonoBehaviour
     {
         curState = MummyState.Ragdoll;
         agent.SetDestination(this.transform.position);
+        modelTransform.rotation = Quaternion.Euler(0, 0, 0);
         agent.enabled = false;
         GetComponent<RagdollEnabler>().DoRagdoll(true);
         Destroy(this.gameObject, timeBeforeDisappear);

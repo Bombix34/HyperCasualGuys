@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RagdollEnabler : MonoBehaviour
 {
-    Animator anim;
+    [SerializeField]
+    private Animator anim;
 
     Collider mainCollider;
     public Collider[] ragdollColliders;
@@ -20,7 +21,6 @@ public class RagdollEnabler : MonoBehaviour
     {
         mainCollider = GetComponent<Collider>();
         mainRigidbody = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
         foreach (var col in freeRagdollColliders)
             Physics.IgnoreCollision(mainCollider, col);
     }

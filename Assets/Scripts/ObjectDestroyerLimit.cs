@@ -7,6 +7,9 @@ public class ObjectDestroyerLimit : MonoBehaviour
     [SerializeField]
     private bool onEnterTrigger;
 
+    [SerializeField]
+    private bool canDestroyProjectile = false;
+
 
     private CameraManager cameraManager;
 
@@ -21,9 +24,10 @@ public class ObjectDestroyerLimit : MonoBehaviour
             return;
         if (other.gameObject.tag == "Trap")
         {
+            if (!canDestroyProjectile)
+                return;
             if(cameraManager.Target.gameObject == other.gameObject)
             {
-                Debug.Log("OUI");
                 cameraManager.ReturnToStaticPosition();
             }
         }
@@ -36,6 +40,8 @@ public class ObjectDestroyerLimit : MonoBehaviour
             return;
         if (other.gameObject.tag == "Trap")
         {
+            if (!canDestroyProjectile)
+                return;
             if (cameraManager.Target.gameObject == other.gameObject)
             {
                 Debug.Log("OUI");
