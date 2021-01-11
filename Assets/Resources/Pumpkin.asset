@@ -16,5 +16,5 @@ MonoBehaviour:
     type: 3}
   minSize: 20
   maxSize: 25
-  minSpeed: 25
-  maxSpeed: 30
+  minSpeed: 30
+  maxSpeed: 35
