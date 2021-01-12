@@ -769,6 +769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904e2468574c14440b37864fd9946b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 9efb80e4a28145343b7e3811cc18a2ed, type: 2}
   target: {x: 0, y: 0, z: 0}
   modelTransform: {fileID: 9185209172261343496}
 --- !u!54 &8715259602088706272
