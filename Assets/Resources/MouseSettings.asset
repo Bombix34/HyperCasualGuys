@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 6
   touchedForce: 50
-  explosionForce: 80
+  explosionForce: 70

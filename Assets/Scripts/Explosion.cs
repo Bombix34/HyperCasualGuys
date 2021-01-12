@@ -10,14 +10,9 @@ public class Explosion : MonoBehaviour
     private float radius;
     [SerializeField]
     private float power;
-   
-    
-    private void Start()
-    {
+    [SerializeField]
+    private GameObject fxPrefab;
 
-    }
-
-    // Update is called once per frame
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -32,20 +27,27 @@ public class Explosion : MonoBehaviour
     }
     private void FruitExplosion()
     {
-        Vector3 explosionPos = transform.position;
-        Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+        //Vector3 explosionPos = transform.position;
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider hit in colliders)
         {
-
             if (hit.gameObject.CompareTag("Mummy"))
             {
-                Debug.Log("Passé dans le comparetag");
                 MummyAgent agent = hit.gameObject.GetComponent<MummyAgent>();
-                agent.RagdollState();
-                agent.GetComponent<Rigidbody>().AddExplosionForce(power, explosionPos, radius, 3.0f);
+                agent.DoExplose(transform.position);
             }
         }
+        StartCoroutine(WaitForEndExplosion());
+    }
 
-        Destroy(gameObject, 0.3f);
+    private IEnumerator WaitForEndExplosion()
+    {
+        GameObject fx = Instantiate(fxPrefab, null);
+        fx.transform.position = this.transform.position;
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        yield return new WaitForSeconds(0.3f);
+        Camera.main.GetComponent<CameraManager>().ReturnToStaticPosition();
+        Destroy(this.gameObject);
     }
 }

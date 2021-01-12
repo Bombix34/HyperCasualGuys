@@ -22,7 +22,7 @@ public class ObjectDestroyerLimit : MonoBehaviour
     {
         if (!onEnterTrigger)
             return;
-        if (other.gameObject.tag == "Trap")
+        if (other.gameObject.CompareTag("Trap"))
         {
             if (!canDestroyProjectile)
                 return;
@@ -30,24 +30,31 @@ public class ObjectDestroyerLimit : MonoBehaviour
             {
                 cameraManager.ReturnToStaticPosition();
             }
+            Destroy(other.gameObject);
         }
-        Destroy(other.gameObject);
+        else if (other.gameObject.CompareTag("Mummy"))
+        {
+            other.GetComponent<MummyAgent>().KillMummy();
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (onEnterTrigger)
             return;
-        if (other.gameObject.tag == "Trap")
+        if (other.gameObject.CompareTag("Trap"))
         {
             if (!canDestroyProjectile)
                 return;
             if (cameraManager.Target.gameObject == other.gameObject)
             {
-                Debug.Log("OUI");
                 cameraManager.ReturnToStaticPosition();
             }
+            Destroy(other.gameObject);
         }
-        Destroy(other.gameObject);
+        else if (other.gameObject.CompareTag("Mummy"))
+        {
+            other.GetComponent<MummyAgent>().KillMummy();
+        }
     }
 }

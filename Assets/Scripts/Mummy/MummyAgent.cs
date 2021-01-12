@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using DG.Tweening;
+
 
 public class MummyAgent : MonoBehaviour
 {
@@ -15,10 +17,12 @@ public class MummyAgent : MonoBehaviour
     public Vector3 target;
 
 
-    float timeBeforeDisappear = 15f;
+    float timeBeforeDisappear = 2f;
 
     [SerializeField]
     private Transform modelTransform;
+    [SerializeField]
+    private GameObject modelBody;
 
     void Awake()
     {
@@ -63,11 +67,29 @@ public class MummyAgent : MonoBehaviour
     public void RagdollState()
     {
         curState = MummyState.Ragdoll;
-        agent.SetDestination(this.transform.position);
-        modelTransform.rotation = Quaternion.Euler(0, 0, 0);
         agent.enabled = false;
+        modelTransform.rotation = Quaternion.Euler(0, 0, 0);
         GetComponent<RagdollEnabler>().DoRagdoll(true);
-        Destroy(this.gameObject, timeBeforeDisappear);
+        KillMummy();
+    }
+
+    public void DoExplose(Vector3 explositionPosition)
+    {
+        if (curState != MummyState.Ragdoll)
+            RagdollState();
+        Vector3 forceVector = new Vector3(transform.position.x - explositionPosition.x, transform.position.y - explositionPosition.y, transform.position.z - explositionPosition.z).normalized;
+        GetComponent<RagdollEnabler>().AddForceToRagdoll(forceVector * (settings.explosionForce));
+    }
+
+    private IEnumerator KillMummyCoroutine()
+    {
+        yield return new WaitForSeconds(timeBeforeDisappear);
+        modelBody?.transform?.DOScale(0f, 1f).OnComplete(() => Destroy(this.gameObject));
+    }
+
+    public void KillMummy()
+    {
+        StartCoroutine(KillMummyCoroutine());
     }
 
     public enum MummyState 

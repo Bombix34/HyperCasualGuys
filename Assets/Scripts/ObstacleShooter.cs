@@ -15,6 +15,7 @@ public class ObstacleShooter : MonoBehaviour
     private void Awake()
     {
         cameraManager = GetComponent<CameraManager>();
+
     }
 
     private void Update()
