@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4069613554934371308}
   - component: {fileID: 4069613554934371296}
   - component: {fileID: 7891206497331783971}
+  - component: {fileID: -5756217697751030425}
   m_Layer: 0
   m_Name: pumpkin
   m_TagString: Trap
@@ -125,3 +126,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 311051427ccee479aa38c8306fe584d7, type: 2}
+--- !u!114 &-5756217697751030425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4069613553282518926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf15a5e7c2b726d4b9d9393e89f8e2cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 200
+  power: 200

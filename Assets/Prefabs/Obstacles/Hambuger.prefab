@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 313917780300930457}
   - component: {fileID: 313917780300930463}
   - component: {fileID: 1716740697085233594}
+  - component: {fileID: -2872401883524650553}
   m_Layer: 0
   m_Name: Hambuger
   m_TagString: Trap
@@ -140,3 +141,17 @@ CapsuleCollider:
   m_Height: 0.34
   m_Direction: 1
   m_Center: {x: 0.000000056721962, y: 0.022450516, z: -0.0020236229}
+--- !u!114 &-2872401883524650553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313917780431569909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf15a5e7c2b726d4b9d9393e89f8e2cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 200
+  power: 200

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7076874433087761725}
   - component: {fileID: 7076874433087761723}
   - component: {fileID: 7076874433087761724}
+  - component: {fileID: 7269083206926792265}
   m_Layer: 0
   m_Name: banana
   m_TagString: Trap
@@ -125,3 +126,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 6ee82ef18ab25455380dcbb7367c65e5, type: 2}
+--- !u!114 &7269083206926792265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7076874432742217018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf15a5e7c2b726d4b9d9393e89f8e2cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 200
+  power: 200
