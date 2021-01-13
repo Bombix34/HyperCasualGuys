@@ -9,9 +9,12 @@ public class CameraManager : MonoBehaviour
 
     private CameraState currentState = CameraState.STATIC;
 
-    private Transform target;
+    private Transform target=null;
 
-    public float smoothSpeed = 0.125f;
+    public float smoothSpeedFollow = 0.125f;
+    public float smoothSpeedReturnToStatic = 0.125f;
+
+    public float rotationFollowSpeed = 5f;
     public Vector3 offset;
 
     private void Awake()
@@ -24,12 +27,12 @@ public class CameraManager : MonoBehaviour
     {
         target = newTarget;
         currentState = CameraState.FOLLOW;
-
     }
 
     public void ReturnToStaticPosition()
     {
         currentState = CameraState.STATIC;
+        target = null;
        // transform.position = staticBasePosition;
     }
 
@@ -40,15 +43,16 @@ public class CameraManager : MonoBehaviour
             if (target == null)
                 return;
             Vector3 desiredPosition = target.position + offset;
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeedFollow);
             transform.position = smoothedPosition;
-            transform.LookAt(target);
+            Quaternion desiredRotation = Quaternion.LookRotation(target.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * rotationFollowSpeed);
         }
         else
         {
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, staticBasePosition, smoothSpeed);
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, staticBasePosition, smoothSpeedReturnToStatic);
             transform.position = smoothedPosition;
-            Quaternion smoothedRotation = Quaternion.Lerp(transform.rotation, baseRotation, smoothSpeed);
+            Quaternion smoothedRotation = Quaternion.Lerp(transform.rotation, baseRotation, smoothSpeedReturnToStatic);
             transform.rotation = smoothedRotation;
         }
     }
