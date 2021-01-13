@@ -4,40 +4,41 @@ using UnityEngine;
 
 public class AutoSpawner : MonoBehaviour
 {
+    public LevelSpawnerSequence currentLevelSequence;
+    private int currentSequenceIndex = -1;
+
     MummySpawner mummySpawner;
-    TrapSpawner trapSpawner;
-
-    public float mummyFrequency;
-    public float trapFrequency;
-
-    float curChronoMummy;
-    float curChronoTrap;
 
     private void Awake()
     {
         mummySpawner = GetComponentInChildren<MummySpawner>();
-        trapSpawner = GetComponentInChildren<TrapSpawner>();
     }
 
-    void Start()
+    private void Start()
     {
-        curChronoMummy = Random.Range(mummyFrequency, mummyFrequency * 1.5f);
-        curChronoTrap = Random.Range(trapFrequency, trapFrequency * 1.5f);
+        LoadNextSequence();
     }
 
-    void Update()
+    private void Update()
     {
-        curChronoMummy -= Time.deltaTime;
-        curChronoTrap -= Time.deltaTime;
-        if(curChronoMummy<=0)
+        //UPDATE SEQUENCE EN COURS
+        if(currentLevelSequence.levelSequence[currentSequenceIndex].Execute())
         {
-            mummySpawner.SpawnMummy();
-            curChronoMummy = Random.Range(mummyFrequency, mummyFrequency * 1.5f);
+            //SEQUENCE FINIE
+            LoadNextSequence();
         }
-        if(curChronoTrap<=0)
+    }
+
+    private void LoadNextSequence()
+    {
+        if(currentSequenceIndex+1 >= currentLevelSequence.levelSequence.Count)
         {
-            trapSpawner.SpawnTrap();
-            curChronoTrap = Random.Range(trapFrequency, trapFrequency * 1.5f);
+            //FIN DU LEVEL
+            Debug.Log("END LEVEL");
+            return;
         }
+        currentSequenceIndex++;
+        currentLevelSequence.levelSequence[currentSequenceIndex].spawnerManager = mummySpawner;
+        currentLevelSequence.levelSequence[currentSequenceIndex].StartSequence();
     }
 }
