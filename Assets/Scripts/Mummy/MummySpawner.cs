@@ -20,17 +20,17 @@ public class MummySpawner : MonoBehaviour
         switch(spawnType)
         {
             case SpawnType.LEFT:
-                randPos = new Vector3(transform.position.x + Random.Range(-15f, -5f), transform.position.y, transform.position.z + Random.Range(-10f, 0f));
+                randPos = new Vector3(transform.position.x + Random.Range(-15f, -7f), transform.position.y, transform.position.z + Random.Range(-10f, 0f));
                 break;
             case SpawnType.RIGHT:
-                randPos = new Vector3(transform.position.x + Random.Range(5f, 15f), transform.position.y, transform.position.z + Random.Range(-10f, 0f));
+                randPos = new Vector3(transform.position.x + Random.Range(7f, 15f), transform.position.y, transform.position.z + Random.Range(-10f, 0f));
                 break;
             case SpawnType.MIDDLE:
                 randPos = new Vector3(transform.position.x + Random.Range(-5f, 5f), transform.position.y, transform.position.z + Random.Range(-10f, 0f));
                 break;
             case SpawnType.LEFT_RIGHT:
                 int rand = Random.Range(1, 100);
-                float randPosX = rand < 51 ? Random.Range(-15f, -5f) : Random.Range(5f, 15f);
+                float randPosX = rand < 51 ? Random.Range(-15f, -7f) : Random.Range(7f, 15f);
                 randPos = new Vector3(transform.position.x + randPosX, transform.position.y, transform.position.z + Random.Range(-10f, 0f));
                 break;
             case SpawnType.RANDOM:

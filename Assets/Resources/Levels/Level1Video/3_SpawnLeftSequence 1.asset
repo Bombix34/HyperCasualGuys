@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chronoSequence: 4
   spawnType: 1
-  mummySpawnFrequency: 0.2
+  mummySpawnFrequency: 0.5
