@@ -16,6 +16,7 @@ public class CameraManager : MonoBehaviour
 
     public float rotationFollowSpeed = 5f;
     public Vector3 offset;
+    public Vector3 endGameOffset;
 
     private void Awake()
     {
@@ -23,10 +24,12 @@ public class CameraManager : MonoBehaviour
         baseRotation = transform.rotation;
     }
 
-    public void FollowTarget(Transform newTarget)
+    public void FollowTarget(Transform newTarget, bool isEndGame=false)
     {
         target = newTarget;
         currentState = CameraState.FOLLOW;
+        if (isEndGame)
+            offset = endGameOffset;
     }
 
     public void ReturnToStaticPosition()
@@ -48,7 +51,7 @@ public class CameraManager : MonoBehaviour
             Quaternion desiredRotation = Quaternion.LookRotation(target.position - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * rotationFollowSpeed);
         }
-        else
+        else if(currentState==CameraState.STATIC)
         {
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, staticBasePosition, smoothSpeedReturnToStatic);
             transform.position = smoothedPosition;
@@ -78,7 +81,7 @@ public class CameraManager : MonoBehaviour
         get
         {
             bool isGoodState = currentState == CameraState.STATIC;
-            bool isGoodPosition = Vector3.Distance(transform.position, staticBasePosition) < 0.3f;
+            bool isGoodPosition = Vector3.Distance(transform.position, staticBasePosition) < 0.4f;
             return isGoodState && isGoodPosition;
         }
     }

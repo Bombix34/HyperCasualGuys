@@ -11,6 +11,10 @@ public class ObjectDestroyerLimit : MonoBehaviour
     private bool canDestroyProjectile = false;
 
 
+    [SerializeField]
+    private bool isFinishLine = false;
+
+
     private CameraManager cameraManager;
 
     private void Awake()
@@ -34,6 +38,11 @@ public class ObjectDestroyerLimit : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Mummy"))
         {
+            if(isFinishLine)
+            {
+                GameManager.Instance.GameOver(other.gameObject);
+                return;
+            }
             other.GetComponent<MummyAgent>().KillMummy();
         }
     }
@@ -54,6 +63,11 @@ public class ObjectDestroyerLimit : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Mummy"))
         {
+            if (isFinishLine)
+            {
+                GameManager.Instance.GameOver(other.gameObject);
+                return;
+            }
             other.GetComponent<MummyAgent>().KillMummy();
         }
     }
