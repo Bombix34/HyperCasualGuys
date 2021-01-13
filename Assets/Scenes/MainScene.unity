@@ -1145,8 +1145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6308bf9724b6e42ed982939ae696025f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevelSequence: {fileID: 11400000, guid: 47f12cf287740104ca259e89f9ec89a1,
+    type: 2}
   mummyFrequency: 0.7
-  trapFrequency: 30000
 --- !u!4 &667364486
 Transform:
   m_ObjectHideFlags: 0

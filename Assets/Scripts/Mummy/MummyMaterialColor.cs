@@ -14,7 +14,7 @@ public class MummyMaterialColor : MonoBehaviour
 
     private void Start()
     {
-        InitMummyColor();
+        //InitMummyColor();
     }
 
     public void InitMummyColor()
@@ -23,6 +23,14 @@ public class MummyMaterialColor : MonoBehaviour
         foreach(var item in renderers)
         {
             item.material = materials[randomColor];
+        }
+    }
+
+    public void SetupColor(int index)
+    {
+        foreach (var item in renderers)
+        {
+            item.material = materials[index];
         }
     }
 }
