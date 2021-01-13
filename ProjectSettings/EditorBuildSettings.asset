@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
+    path: Assets/Scenes/NinoMainScene.unity
     guid: d736ffed67026cf468539964132247ea
   m_configObjects: {}
