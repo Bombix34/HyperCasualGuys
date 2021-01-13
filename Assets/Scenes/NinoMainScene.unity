@@ -475,27 +475,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9b493bbd86ef3443a770a279d0426a9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.941
+      value: 9.878
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9b493bbd86ef3443a770a279d0426a9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.225
+      value: -0.158
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9b493bbd86ef3443a770a279d0426a9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.37928438
+      value: -0.3733479
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9b493bbd86ef3443a770a279d0426a9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.64752275
+      value: 0.6005092
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9b493bbd86ef3443a770a279d0426a9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5506149
+      value: 0.6005092
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9b493bbd86ef3443a770a279d0426a9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.36562392
+      value: 0.3733479
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9b493bbd86ef3443a770a279d0426a9, type: 3}
       propertyPath: m_RootOrder
@@ -503,7 +503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9b493bbd86ef3443a770a279d0426a9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -82.064
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9b493bbd86ef3443a770a279d0426a9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -867,7 +867,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30929e0b57b9d440f919ee15bdc9cb91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothSpeed: 0.075
+  smoothSpeedFollow: 0.125
+  smoothSpeedReturnToStatic: 0.125
+  rotationFollowSpeed: 5
   offset: {x: 0, y: 5, z: -15}
 --- !u!1 &578345407
 GameObject:
@@ -1143,8 +1145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6308bf9724b6e42ed982939ae696025f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mummyFrequency: 0.7
-  trapFrequency: 30000
+  currentLevelSequence: {fileID: 11400000, guid: e083a958bede5a24c9f884e9cfce47a4,
+    type: 2}
 --- !u!4 &667364486
 Transform:
   m_ObjectHideFlags: 0
