@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df9345f106244f943836f7277e439a39, type: 3}
-  m_Name: SpawnRightSequence
+  m_Script: {fileID: 11500000, guid: ca537152d55321d4a8009e3c03497f8a, type: 3}
+  m_Name: New Wait Sequence2sec
   m_EditorClassIdentifier: 
-  chronoSequence: 4
-  spawnType: 2
-  mummySpawnFrequency: 0.2
+  chronoSequence: 2
