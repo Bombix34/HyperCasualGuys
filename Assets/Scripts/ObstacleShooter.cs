@@ -48,15 +48,7 @@ public class ObstacleShooter : MonoBehaviour
             Vector3 spawnPosition = new Vector3(spawnPositionX, yPosition, zPosition);
             GameObject newObstacle = obstacleSpawner.SpawnTrap(spawnPosition);
             cameraManager.FollowTarget(newObstacle.transform);
-            //RaycastHit hit;
-            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //if (Physics.Raycast(ray, out hit))
-            // {
-            //    float xValue = hit.point.x;
-            //Vector3 spawnPosition = new Vector3(xValue, yPosition, zPosition);
-            // GameObject newObstacle = obstacleSpawner.SpawnTrap(spawnPosition);
-            // cameraManager.FollowTarget(newObstacle.transform);
-            // }
+            
         }
 
     }
