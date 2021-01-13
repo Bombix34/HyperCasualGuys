@@ -1311,7 +1311,7 @@ PrefabInstance:
     - target: {fileID: 5666207047148696327, guid: 10504ce08e75b35438e2724b0096aac9,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10504ce08e75b35438e2724b0096aac9, type: 3}
@@ -6888,6 +6888,7 @@ GameObject:
   - component: {fileID: 1484326689}
   - component: {fileID: 1484326691}
   - component: {fileID: 1484326690}
+  - component: {fileID: 1484326692}
   m_Layer: 5
   m_Name: GameOver_TMPText
   m_TagString: Untagged
@@ -6935,8 +6936,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: GAME OVER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ea5a4fca2c1842b47b3babd37c427b36, type: 2}
+  m_sharedMaterial: {fileID: -4642955865681515938, guid: ea5a4fca2c1842b47b3babd37c427b36,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6961,7 +6963,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 40.05
+  m_fontSize: 55.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7033,6 +7035,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484326688}
   m_CullTransparentMesh: 0
+--- !u!95 &1484326692
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484326688}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ef2b2edb99003541a8550fcad33616e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1538377114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7076874432742115610, guid: cea0033614fd752438a1fab512aeb2e0,
