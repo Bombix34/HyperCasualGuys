@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 public class GameManager : Singleton<GameManager>
@@ -39,6 +40,8 @@ public class GameManager : Singleton<GameManager>
         endGameUI.gameObject.SetActive(true);
         endGameUI.DOAnchorPosY(0, 0.6f).SetEase(Ease.OutBounce);
         endGamePrefab.SetActive(true);
+        yield return new WaitForSeconds(10f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void EndLevel()
