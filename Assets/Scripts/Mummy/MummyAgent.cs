@@ -79,6 +79,7 @@ public class MummyAgent : MonoBehaviour
             RagdollState();
         Vector3 forceVector = new Vector3(transform.position.x - explositionPosition.x, transform.position.y - explositionPosition.y, transform.position.z - explositionPosition.z).normalized;
         GetComponent<RagdollEnabler>().AddForceToRagdoll(forceVector * (settings.explosionForce));
+        GetComponent<MummyMaterialColor>().SetExplodeMaterial();
     }
 
     private IEnumerator KillMummyCoroutine()

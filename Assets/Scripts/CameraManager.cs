@@ -15,7 +15,9 @@ public class CameraManager : MonoBehaviour
     public float smoothSpeedReturnToStatic = 0.125f;
 
     public float rotationFollowSpeed = 5f;
-    public Vector3 offset;
+    private Vector3 currentOffset;
+    public Vector3 followOffset;
+    public Vector3 explosionOffset;
     public Vector3 endGameOffset;
 
     private void Awake()
@@ -29,7 +31,9 @@ public class CameraManager : MonoBehaviour
         target = newTarget;
         currentState = CameraState.FOLLOW;
         if (isEndGame)
-            offset = endGameOffset;
+            currentOffset = endGameOffset;
+        else
+            currentOffset = followOffset;
     }
 
     public void ReturnToStaticPosition()
@@ -45,7 +49,7 @@ public class CameraManager : MonoBehaviour
         {
             if (target == null)
                 return;
-            Vector3 desiredPosition = target.position + offset;
+            Vector3 desiredPosition = target.position + currentOffset;
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeedFollow);
             transform.position = smoothedPosition;
             Quaternion desiredRotation = Quaternion.LookRotation(target.position - transform.position);
@@ -58,6 +62,11 @@ public class CameraManager : MonoBehaviour
             Quaternion smoothedRotation = Quaternion.Lerp(transform.rotation, baseRotation, smoothSpeedReturnToStatic);
             transform.rotation = smoothedRotation;
         }
+    }
+
+    public void ExplodeEffect()
+    {
+        currentOffset = explosionOffset;
     }
 
     public Transform Target
@@ -85,6 +94,8 @@ public class CameraManager : MonoBehaviour
             return isGoodState && isGoodPosition;
         }
     }
+
+    public ShakeScreen ScreenShake { get => GetComponent<ShakeScreen>();}
 
 
 }

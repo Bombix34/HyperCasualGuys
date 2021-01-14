@@ -46,8 +46,11 @@ public class Explosion : MonoBehaviour
         fx.transform.position = this.transform.position;
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
-        yield return new WaitForSeconds(0.3f);
-        Camera.main.GetComponent<CameraManager>().ReturnToStaticPosition();
+        CameraManager camManager = Camera.main.GetComponent<CameraManager>();
+        camManager.ScreenShake.setShake(0.2f);
+        camManager.ExplodeEffect();
+        yield return new WaitForSeconds(0.5f);
+        camManager.ReturnToStaticPosition();
         Destroy(this.gameObject);
     }
 }
