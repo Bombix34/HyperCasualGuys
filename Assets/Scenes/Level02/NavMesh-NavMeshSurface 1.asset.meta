@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Scenes/Level02/NavMesh-NavMeshSurface 1.asset.meta
 guid: 81f341b29e108914383844a28547d20d
+=======
+<<<<<<< Updated upstream
+guid: ab56df929a3da64409dff12b97c76626
+=======
+guid: 0f45b5308f45d10409f50e3567084959
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes:Assets/Scenes/ChloeMainScene1/NavMesh-NavMeshSurface.asset.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
