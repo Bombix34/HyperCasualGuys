@@ -7,6 +7,8 @@ public class MummyMaterialColor : MonoBehaviour
     SkinnedMeshRenderer[] renderers;
     public Material[] materials;
 
+    public Material explodeMaterial;
+
     private void Awake()
     {
         renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
@@ -31,6 +33,14 @@ public class MummyMaterialColor : MonoBehaviour
         foreach (var item in renderers)
         {
             item.material = materials[index];
+        }
+    }
+
+    public void SetExplodeMaterial()
+    {
+        foreach (var item in renderers)
+        {
+            item.material = explodeMaterial;
         }
     }
 }
