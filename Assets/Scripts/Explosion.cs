@@ -13,8 +13,12 @@ public class Explosion : MonoBehaviour
     [SerializeField]
     private GameObject fxPrefab;
 
+    private bool isExplosing = false;
+
     private void Update()
     {
+        if (isExplosing)
+            return;
         if (Input.GetMouseButtonDown(0))
         {
             CameraManager camera = Camera.main.GetComponent<CameraManager>();
@@ -27,6 +31,7 @@ public class Explosion : MonoBehaviour
     }
     private void FruitExplosion()
     {
+        isExplosing = true;
         //Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider hit in colliders)
@@ -48,7 +53,8 @@ public class Explosion : MonoBehaviour
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         CameraManager camManager = Camera.main.GetComponent<CameraManager>();
         camManager.ScreenShake.setShake(0.2f);
-        camManager.ExplodeEffect();
+        if(GameManager.Instance.IsCameraFollowProjectile)
+            camManager.ExplodeEffect();
         yield return new WaitForSeconds(0.5f);
         camManager.ReturnToStaticPosition();
         Destroy(this.gameObject);

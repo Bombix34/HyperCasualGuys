@@ -10,6 +10,8 @@ public class GameManager : Singleton<GameManager>
 
     private bool isGameOver = false;
 
+    public bool IsCameraFollowProjectile = false;
+
     [SerializeField]
     private GameObject endGamePrefab;
     [SerializeField]

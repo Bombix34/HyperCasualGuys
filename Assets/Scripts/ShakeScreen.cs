@@ -9,16 +9,22 @@ public class ShakeScreen : MonoBehaviour
     private float shakeAmount = 0.8f;
     private Camera mainCamera;
 
+    private Vector3 basePosition;
+
     private void Awake()
     {
         mainCamera = this.GetComponent<Camera>();
+        basePosition = this.transform.position;
     }
 
     private void Update()
     {
         if (shake > 0)
         {
-            mainCamera.transform.position = Random.insideUnitSphere * shakeAmount + this.transform.position;
+            if(GameManager.Instance.IsCameraFollowProjectile)
+                mainCamera.transform.position = Random.insideUnitSphere * shakeAmount + this.transform.position;
+            else
+                mainCamera.transform.position = Random.insideUnitSphere * shakeAmount + basePosition;
             shake -= Time.deltaTime * decreaseFactor;
         }
         else

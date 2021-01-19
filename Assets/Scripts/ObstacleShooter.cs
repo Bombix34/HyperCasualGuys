@@ -47,7 +47,11 @@ public class ObstacleShooter : MonoBehaviour
     private IEnumerator CameraFollowCoroutine(GameObject newObstacle)
     {
         yield return new WaitForSeconds(0.15f);
-        cameraManager.FollowTarget(newObstacle.transform);
+        if (GameManager.Instance.IsCameraFollowProjectile)
+            cameraManager.FollowTarget(newObstacle.transform);
+        else
+            cameraManager.FollowTarget(null);
+
         canShoot = true;
     }
 
