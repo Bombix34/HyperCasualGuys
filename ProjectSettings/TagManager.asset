@@ -8,6 +8,7 @@ TagManager:
   - Mummy
   - Trap
   - FxTemporaire
+  - Parent
   layers:
   - Default
   - TransparentFX
